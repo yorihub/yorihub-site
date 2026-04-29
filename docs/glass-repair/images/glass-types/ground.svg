@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- すり（型）ガラス：横線パターンで曇り感を表現 -->
+  <rect x="8" y="8" width="48" height="48" rx="2" stroke="#1F3A5F" stroke-width="2"/>
+  <line x1="14" y1="20" x2="50" y2="20" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="27" x2="50" y2="27" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="34" x2="50" y2="34" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="41" x2="50" y2="41" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="48" x2="50" y2="48" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

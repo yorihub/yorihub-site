@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 強化ガラス：窓枠＋六角形（強度の象徴） -->
+  <rect x="8" y="8" width="48" height="48" rx="2" stroke="#1F3A5F" stroke-width="2"/>
+  <!-- 六角形 -->
+  <polygon points="32,16 42,22 42,34 32,40 22,34 22,22"
+           stroke="#5F7A6C" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- 中央の縦線（強度） -->
+  <line x1="32" y1="20" x2="32" y2="36" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- 下部の安定感ライン -->
+  <line x1="20" y1="50" x2="44" y2="50" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

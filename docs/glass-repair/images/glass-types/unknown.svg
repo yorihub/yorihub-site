@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- ご不明なガラス：窓枠＋クエスチョンマーク -->
+  <rect x="8" y="8" width="48" height="48" rx="2" stroke="#1F3A5F" stroke-width="2"/>
+  <!-- ？マーク -->
+  <path d="M24 26 C24 21 28 18 32 18 C36 18 40 21 40 26 C40 30 36 32 32 34 L32 38"
+        stroke="#5F7A6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="44" r="2" fill="#5F7A6C"/>
+</svg>

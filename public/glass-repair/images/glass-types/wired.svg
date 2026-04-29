@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 網入りガラス：ダイヤ格子パターン -->
+  <rect x="8" y="8" width="48" height="48" rx="2" stroke="#1F3A5F" stroke-width="2"/>
+  <!-- 縦線 -->
+  <line x1="24" y1="10" x2="24" y2="54" stroke="#5F7A6C" stroke-width="1" opacity="0.7"/>
+  <line x1="40" y1="10" x2="40" y2="54" stroke="#5F7A6C" stroke-width="1" opacity="0.7"/>
+  <!-- 横線 -->
+  <line x1="10" y1="24" x2="54" y2="24" stroke="#5F7A6C" stroke-width="1" opacity="0.7"/>
+  <line x1="10" y1="40" x2="54" y2="40" stroke="#5F7A6C" stroke-width="1" opacity="0.7"/>
+  <!-- 斜め線 -->
+  <line x1="10" y1="10" x2="54" y2="54" stroke="#5F7A6C" stroke-width="1" opacity="0.5"/>
+  <line x1="54" y1="10" x2="10" y2="54" stroke="#5F7A6C" stroke-width="1" opacity="0.5"/>
+</svg>

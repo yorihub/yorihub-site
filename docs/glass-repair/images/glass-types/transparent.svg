@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 透明ガラス（単板）：シンプルな窓枠 -->
+  <rect x="8" y="8" width="48" height="48" rx="2" stroke="#1F3A5F" stroke-width="2"/>
+  <rect x="14" y="14" width="36" height="36" rx="1" stroke="#5F7A6C" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <!-- 光の反射線 -->
+  <line x1="18" y1="18" x2="26" y2="14" stroke="#5F7A6C" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22" y1="24" x2="32" y2="18" stroke="#5F7A6C" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- ペアガラス（複層）：2枚重ねの断面図 -->
+  <!-- 外側のガラス -->
+  <rect x="6" y="12" width="10" height="40" rx="1" stroke="#1F3A5F" stroke-width="2"/>
+  <!-- 中空層（点線） -->
+  <rect x="19" y="12" width="26" height="40" rx="1" stroke="#5F7A6C" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- 内側のガラス -->
+  <rect x="48" y="12" width="10" height="40" rx="1" stroke="#1F3A5F" stroke-width="2"/>
+  <!-- 間隔を示す矢印 -->
+  <line x1="18" y1="32" x2="47" y2="32" stroke="#5F7A6C" stroke-width="1" stroke-dasharray="2 2"/>
+</svg>

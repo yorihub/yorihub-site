@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 防犯ガラス：窓枠＋シールドマーク -->
+  <rect x="8" y="8" width="48" height="48" rx="2" stroke="#1F3A5F" stroke-width="2"/>
+  <!-- シールドアイコン -->
+  <path d="M32 18 L44 23 L44 33 C44 39 38 44 32 46 C26 44 20 39 20 33 L20 23 Z"
+        stroke="#5F7A6C" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- チェックマーク -->
+  <polyline points="26,32 30,36 38,28" stroke="#5F7A6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

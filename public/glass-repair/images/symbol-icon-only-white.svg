@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90" height="52" viewBox="8 13 45 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- ヨリハブ ロゴアイコンのみ（白） -->
+  <g transform="translate(10, 10)">
+    <rect x="0" y="5" width="25" height="18" rx="5" fill="#FFFFFF"/>
+    <path d="M5 23 L3 27 L10 23" fill="#FFFFFF"/>
+    <line x1="25" y1="14" x2="31" y2="14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="37" cy="14" r="4" fill="#FFFFFF"/>
+  </g>
+</svg>
