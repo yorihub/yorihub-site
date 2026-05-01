@@ -20,8 +20,8 @@ export default function OperatorPage() {
       : []),
     {
       label: "所在地",
-      value: siteConfig.areaLabel,
-      note: "来店対応を行う店舗運営ではないため、詳細住所の公開は控えています。",
+      value: siteConfig.address,
+      note: "登記・住所利用専用のバーチャルオフィスのため、来店対応は行っておりません。",
     },
     {
       label: "連絡先",

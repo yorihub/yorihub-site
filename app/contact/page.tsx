@@ -59,7 +59,7 @@ export default function ContactPage() {
                   {siteConfig.contactEmail}
                 </a>
                 <p className="text-xs text-slate-500 mt-2">
-                  件名にお問い合わせの種別（提携・事業内容の確認・その他）をご記載いただけると、スムーズに対応できます。
+                  内容・目的を簡潔にお書き添えください。順次ご返信いたします。
                 </p>
               </div>
             )}
