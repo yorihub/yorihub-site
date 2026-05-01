@@ -126,6 +126,22 @@
   </script>
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- hero画像のpreload（LCP改善） -->
+  <link
+    rel="preload"
+    as="image"
+    href="images/fv-broken-window-1920.webp"
+    type="image/webp"
+    media="(min-width: 769px)"
+    fetchpriority="high">
+  <link
+    rel="preload"
+    as="image"
+    href="images/fv-broken-window-960.webp"
+    type="image/webp"
+    media="(max-width: 768px)"
+    fetchpriority="high">
 </head>
 <body>
 
@@ -174,14 +190,19 @@
          ============================================================ -->
     <section id="section-1-fv" class="section-fv">
       <!-- SEO / アクセシビリティ用：背景画像をCSSで表示しつつ、img要素で画像情報を提供 -->
-      <img
-        src="images/fv-broken-window.png"
-        alt="東京の住宅街を背景に、ひび割れた窓ガラス"
-        width="3500"
-        height="2333"
-        class="fv-bg-img"
-        aria-hidden="true"
-      >
+      <picture>
+        <source srcset="images/fv-broken-window-1920.webp" type="image/webp">
+        <img
+          src="images/fv-broken-window-1920.jpg"
+          alt="東京の住宅街を背景に、ひび割れた窓ガラス"
+          width="1920"
+          height="1080"
+          class="fv-bg-img"
+          aria-hidden="true"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </picture>
       <div class="container">
         <div class="fv-content">
           <h1 class="fv-headline">窓ガラスが割れたら。<br>東京23区・当日対応で修理します。</h1>
