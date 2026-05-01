@@ -25,21 +25,6 @@ export default function ContactPage() {
             内容を確認したうえで、折り返しご連絡いたします。
           </p>
 
-          {/* 防犯カメラ相談への案内（LP設定時のみ表示） */}
-          {siteConfig.lpUrls.securityCamera && (
-            <p className="mt-4 text-sm text-slate-500">
-              防犯カメラに関するご相談は、
-              <a
-                href={siteConfig.lpUrls.securityCamera}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#1e3a5f] underline hover:opacity-75 transition-opacity"
-              >
-                専用の案内ページ
-              </a>
-              もあわせてご確認ください。
-            </p>
-          )}
         </div>
 
         {/* 連絡方法 */}

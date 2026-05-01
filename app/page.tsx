@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "ヨリハブ – 住まいに関する相談受付・案内窓口",
   description:
-    "ヨリハブは、住まいに関する相談受付・内容整理・案内を行う窓口です。現在は防犯カメラをはじめとする防犯関連の相談受付から対応を開始しています。",
+    "ヨリハブは、窓ガラスの修理・交換に関するご相談を受け付け、東京23区の提携業者をご紹介する紹介型プラットフォームです。出張費・お見積もりは0円。年中無休 9:00〜21:00受付。",
 };
 
 const faqs = [
@@ -41,8 +41,8 @@ export default function HomePage() {
             整理・案内を行う窓口です。
           </h1>
           <p className="text-slate-300 leading-relaxed text-base sm:text-lg mb-8 max-w-xl">
-            現在は防犯カメラをはじめとする防犯関連の相談受付・案内から対応を開始しています。
-            ご相談内容を整理したうえで、事業ごとに適切な案内・提携先の紹介を行います。
+            窓ガラスの修理・交換に関するご相談をお聞きし、東京23区の提携業者へおつなぎしています。
+            出張費・お見積もりは無料、年中無休 9:00〜21:00で受付中です。
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
@@ -111,23 +111,23 @@ export default function HomePage() {
             現在の主な対応領域
           </h2>
           <p className="text-slate-500 text-sm mb-8 border-b border-slate-200 pb-6">
-            現時点では防犯関連を中心に対応しています。今後、住まい関連の分野を段階的に拡張していく予定です。
+            現時点では窓ガラスの修理・交換を中心に対応しています。今後、住まい関連の分野を段階的に拡張していく予定です。
           </p>
           <div className="space-y-4">
             <div className="bg-white rounded-lg border border-slate-200 p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-semibold text-slate-800 mb-1">防犯関連</h3>
+                  <h3 className="font-semibold text-slate-800 mb-1">窓ガラスの修理・交換</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    防犯カメラ・セキュリティ対策に関する相談受付・案内・提携先の紹介を行っています。
+                    窓ガラスの修理・交換に関するご相談を受け付け、東京23区の提携業者をご紹介します。出張費・お見積もりは0円です。
                   </p>
                 </div>
-                <Link
-                  href="/services/security-camera"
+                <a
+                  href="/glass-repair/"
                   className="shrink-0 text-sm font-medium text-[#1e3a5f] hover:underline"
                 >
                   詳細を見る →
-                </Link>
+                </a>
               </div>
             </div>
             <div className="bg-white rounded-lg border border-slate-200 p-5 opacity-60">

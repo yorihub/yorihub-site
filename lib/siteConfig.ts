@@ -41,13 +41,4 @@ export const siteConfig = {
 
   /** プライバシーポリシー施行日 */
   privacyEffectiveDate: "2026年4月",
-
-  /**
-   * 各事業の専用LPリンク
-   * 確定後にURLを入力してください。空文字の場合は導線セクションが非表示になります。
-   */
-  lpUrls: {
-    /** 防犯カメラ専用LP（確定後に差し替えてください） */
-    securityCamera: "https://security.yorihub.jp" as string,
-  },
 };

@@ -62,7 +62,7 @@ export default function PartnersPage() {
             現在の主な対応領域
           </h2>
           <p className="text-sm text-slate-700 leading-relaxed mb-5">
-            現時点では防犯関連（防犯カメラ・セキュリティ対策）の相談受付・案内から対応を開始しています。
+            現時点では窓ガラスの修理・交換を中心に対応しています。
             対応エリアは{siteConfig.areaLabel}を中心としています。
             今後、水まわりをはじめ、住まい関連の他の分野にも対応を広げていく予定です。
           </p>
@@ -70,14 +70,14 @@ export default function PartnersPage() {
             <div className="bg-white border border-slate-200 rounded-lg p-5">
               <div className="flex items-center gap-2 mb-1">
                 <h3 className="font-semibold text-slate-800 text-sm">
-                  防犯関連
+                  窓ガラスの修理・交換
                 </h3>
                 <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
                   対応中
                 </span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                防犯カメラ・セキュリティ対策に関する相談受付・案内・提携先の紹介。
+                窓ガラスの修理・交換に関するご相談受付・提携業者のご紹介。
                 対応エリア：{siteConfig.areaLabel}（戸建て向け中心）
               </p>
             </div>
