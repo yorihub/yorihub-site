@@ -20,7 +20,7 @@ export const siteConfig = {
    * 公開用メールアドレス（確定後に入力してください）
    * 空文字の場合、お問い合わせページのメール欄は表示されません
    */
-  contactEmail: "" as string,
+  contactEmail: "yorihub.info@gmail.com" as string,
 
   /** 対応・返信についての説明文 */
   contactHours:
@@ -35,6 +35,12 @@ export const siteConfig = {
    * 詳細住所は非公開ですが、実体感のためエリアレベルを表示します
    */
   areaLabel: "東京都江東区",
+
+  /**
+   * 運営者所在地（登記・住所利用専用バーチャルオフィス）
+   * 運営者情報ページの「所在地」欄に表示します
+   */
+  address: "〒104-0061 東京都中央区銀座1丁目12番4号 N&E BLD.6F",
 
   /** 現在の主対応領域 */
   primaryArea: "東京23区",
