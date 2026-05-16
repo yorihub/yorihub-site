@@ -42,7 +42,7 @@ export default function HomePage() {
           </h1>
           <p className="text-slate-300 leading-relaxed text-base sm:text-lg mb-8 max-w-xl">
             窓ガラスの修理・交換に関するご相談をお聞きし、東京23区の提携業者へおつなぎしています。
-            出張費・お見積もりは無料、平日9:00〜19:00で受付中です（土日祝・夜間はフォーム・LINEで受付・翌営業日朝に折返し）。
+            出張費・お見積もりは無料、<span className="whitespace-nowrap">平日9:00〜19:00</span>で受付中です（土日祝・夜間はフォーム・LINEで受付・<span className="whitespace-nowrap">翌営業日朝に折返し</span>）。
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
