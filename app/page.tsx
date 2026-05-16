@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "ヨリハブ – 住まいに関する相談受付・案内窓口",
   description:
-    "ヨリハブは、窓ガラスの修理・交換に関するご相談を受け付け、東京23区の提携業者をご紹介する紹介型プラットフォームです。出張費・お見積もりは0円。年中無休 9:00〜21:00受付。",
+    "ヨリハブは、窓ガラスの修理・交換に関するご相談を受け付け、東京23区の提携業者をご紹介する紹介型プラットフォームです。出張費・お見積もりは0円。平日9:00〜19:00受付（土日祝・夜間はフォーム・LINEで受付・翌営業日朝に折返し）。",
 };
 
 const faqs = [
@@ -42,7 +42,7 @@ export default function HomePage() {
           </h1>
           <p className="text-slate-300 leading-relaxed text-base sm:text-lg mb-8 max-w-xl">
             窓ガラスの修理・交換に関するご相談をお聞きし、東京23区の提携業者へおつなぎしています。
-            出張費・お見積もりは無料、年中無休 9:00〜21:00で受付中です。
+            出張費・お見積もりは無料、平日9:00〜19:00で受付中です（土日祝・夜間はフォーム・LINEで受付・翌営業日朝に折返し）。
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link

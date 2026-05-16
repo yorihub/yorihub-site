@@ -10,8 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <p className="text-white font-semibold text-lg mb-2">ヨリハブ</p>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed mb-3">
               住まいに関する相談受付・案内を行うブランドです。
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              営業時間：平日9:00〜19:00（土日祝休業）
+              <br />
+              土日祝・夜間の問合せはフォーム・LINEで受付。翌営業日朝に折返し。
             </p>
           </div>
 

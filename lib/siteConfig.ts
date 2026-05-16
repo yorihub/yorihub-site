@@ -26,6 +26,20 @@ export const siteConfig = {
   contactHours:
     "お問い合わせは随時受け付けています。内容を確認のうえ、順次ご連絡します。",
 
+  /** 営業時間（標準表記） */
+  businessHours: "平日9:00〜19:00（土日祝休業／翌営業日折返し）",
+
+  /** 営業時間（短縮表記・ヘッダー等向け） */
+  businessHoursShort: "平日9-19時",
+
+  /** 営業時間（粒度別） */
+  businessHoursDetail: {
+    weekday: "9:00〜19:00",
+    weekendAndNight:
+      "受付終了（フォーム/LINEで受付・翌営業日朝に折返し）",
+    holiday: "休業（フォーム/LINEで受付・翌営業日朝に折返し）",
+  },
+
   /** 事業内容（一文表記） */
   businessDescription:
     "住まいに関する相談受付・内容整理・案内・提携先事業者の紹介",
