@@ -16,6 +16,28 @@
   <!-- Google Analytics 4（IDは後日差し替えてください） -->
   <!-- GA4 ID: G-XXXXXXX -->
 
+  <!-- Google tag (gtag.js) — Google Ads コンバージョン計測 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18081042341"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18081042341');
+
+    window.gtag_report_conversion = function(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18081042341/vDjlCPbm_rEcEKWf261D',
+          'event_callback': callback
+      });
+      return false;
+    };
+  </script>
+
   <!-- schema.org: LocalBusiness -->
   <script type="application/ld+json">
   {
@@ -149,7 +171,7 @@
        固定要素：モバイル下部CTAバー（スクロール後に表示）
        ============================================================ -->
   <div class="fixed-cta-mobile" id="fixed-cta-mobile" aria-hidden="true">
-    <a href="tel:0368218571" class="fixed-cta-mobile__link" aria-label="電話で問い合わせる：03-6821-8571">
+    <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="fixed-cta-mobile__link" aria-label="電話で問い合わせる：03-6821-8571">
       <span class="fixed-cta-mobile__icon">📞</span>
       <span class="fixed-cta-mobile__number">03-6821-8571</span>
       <span class="fixed-cta-mobile__label">タップで電話</span>
@@ -160,7 +182,7 @@
        固定要素：PC右下CTAボタン（スクロール後に表示）
        ============================================================ -->
   <div class="fixed-cta-pc" id="fixed-cta-pc" aria-hidden="true">
-    <a href="tel:0368218571" class="fixed-cta-pc__link" aria-label="電話で問い合わせる：03-6821-8571">
+    <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="fixed-cta-pc__link" aria-label="電話で問い合わせる：03-6821-8571">
       <span class="fixed-cta-pc__icon">📞</span>
       <span class="fixed-cta-pc__number">03-6821-8571</span>
       <span class="fixed-cta-pc__label">平日9:00〜19:00</span>
@@ -177,7 +199,7 @@
         <span class="site-header__brand">ガラス修理のヨリハブ</span>
       </div>
       <div class="site-header__contact">
-        <a href="tel:0368218571" class="site-header__tel" aria-label="電話番号 03-6821-8571">03-6821-8571</a>
+        <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="site-header__tel" aria-label="電話番号 03-6821-8571">03-6821-8571</a>
         <span class="site-header__hours">平日9:00〜19:00</span>
       </div>
     </div>
@@ -213,7 +235,7 @@
 
           <!-- CTA① 大 -->
           <div class="cta-block cta-block--large">
-            <a href="tel:0368218571" class="btn-cta btn-cta--large" aria-label="電話で問い合わせる：03-6821-8571">
+            <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="btn-cta btn-cta--large" aria-label="電話で問い合わせる：03-6821-8571">
               📞 03-6821-8571
             </a>
             <p class="cta-hours">受付：平日9:00〜19:00 ／ 土日祝・夜間はフォーム・LINEから受付（翌営業日朝に折返し）</p>
@@ -304,7 +326,7 @@
 
         <!-- CTA② -->
         <div class="cta-block cta-block--center">
-          <a href="tel:0368218571" class="btn-cta" aria-label="電話で問い合わせる：03-6821-8571">
+          <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="btn-cta" aria-label="電話で問い合わせる：03-6821-8571">
             📞 まずはお電話でご相談ください
           </a>
         </div>
@@ -556,7 +578,7 @@
 
         <!-- CTA③ -->
         <div class="cta-block cta-block--center">
-          <a href="tel:0368218571" class="btn-cta" aria-label="電話で問い合わせる：03-6821-8571">
+          <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="btn-cta" aria-label="電話で問い合わせる：03-6821-8571">
             📞 お電話でご相談（平日9:00〜19:00）
           </a>
         </div>
@@ -732,7 +754,7 @@
 
         <!-- CTA④ -->
         <div class="cta-block cta-block--center">
-          <a href="tel:0368218571" class="btn-cta" aria-label="電話で問い合わせる：03-6821-8571">
+          <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="btn-cta" aria-label="電話で問い合わせる：03-6821-8571">
             📞 料金のご確認はお電話で（平日9:00〜19:00）
           </a>
         </div>
@@ -916,7 +938,7 @@
 
           <!-- CTA⑤ 大 -->
           <div class="cta-block cta-block--large cta-block--closing">
-            <a href="tel:0368218571" class="btn-cta btn-cta--large" aria-label="電話で問い合わせる：03-6821-8571">
+            <a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');" class="btn-cta btn-cta--large" aria-label="電話で問い合わせる：03-6821-8571">
               📞 03-6821-8571
             </a>
             <p class="cta-hours cta-hours--light">受付：平日9:00〜19:00 ／ 土日祝・夜間はフォーム・LINEから受付（翌営業日朝に折返し）</p>
@@ -950,7 +972,7 @@
             <dt>所在地</dt>
             <dd>要確認（神田さん側で確定後に差し替えてください）</dd>
             <dt>代表電話</dt>
-            <dd><a href="tel:0368218571">03-6821-8571</a></dd>
+            <dd><a href="tel:0368218571" onclick="return gtag_report_conversion('tel:0368218571');">03-6821-8571</a></dd>
             <dt>メール</dt>
             <dd>要確認（神田さん側で確定後に差し替えてください）</dd>
           </dl>
