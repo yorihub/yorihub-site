@@ -27,6 +27,46 @@
   --radius-card: 14px;
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
   --header-height: 60px;
+
+  /* タイプスケール（モバイルファースト） */
+  --fs-caption: 13px;
+  --fs-body:    17px;
+  --fs-lead:    19px;
+  --fs-h3:      20px;
+  --fs-h2:      27px;
+  --fs-h1:      38px;
+  --fs-cta:     22px;
+
+  --lh-caption: 1.7;
+  --lh-body:    1.9;
+  --lh-lead:    1.8;
+  --lh-h3:      1.5;
+  --lh-h2:      1.4;
+  --lh-h1:      1.25;
+  --lh-cta:     1.2;
+
+  --fw-body: 400;
+  --fw-lead: 500;
+  --fw-h:    700;
+  --fw-h1:   800;
+  --fw-cta:  800;
+
+  /* セクション縦余白 */
+  --section-pad-y: 56px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-caption: 14px;
+    --fs-body:    18px;
+    --fs-lead:    21px;
+    --fs-h3:      24px;
+    --fs-h2:      36px;
+    --fs-h1:      54px;
+    --fs-cta:     26px;
+
+    --section-pad-y: 88px;
+  }
 }
 
 /* ------------------------------------------------------------
@@ -45,10 +85,11 @@ html {
 
 body {
   font-family: var(--font-base);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
   background-color: var(--color-secondary);
+  font-weight: var(--fw-body);
   /* ヘッダー固定分の余白 */
   padding-top: var(--header-height);
 }
@@ -154,7 +195,7 @@ ol, ul {
    セクション共通
    ------------------------------------------------------------ */
 .section {
-  padding: 72px 0;
+  padding: var(--section-pad-y) 0;
 }
 
 .section--bg-alt {
@@ -164,24 +205,26 @@ ol, ul {
 /* 締めセクション（ネイビー背景） */
 .section--closing {
   background-color: var(--color-closing-bg);
-  padding: 80px 0;
+  padding: var(--section-pad-y) 0;
 }
 
 /* セクション見出し（全て左揃え） */
 .section-heading {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
-  line-height: 1.5;
+  line-height: var(--lh-h2);
   margin-bottom: 32px;
+  letter-spacing: 0.01em;
 }
 
 .section-heading__sub {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-body);
   color: var(--color-text-sub);
   display: block;
-  margin-top: 4px;
+  margin-top: 8px;
+  line-height: var(--lh-caption);
 }
 
 /* 締めセクション用の白文字見出し */
@@ -190,9 +233,10 @@ ol, ul {
 }
 
 .section-note {
-  font-size: 13px;
+  font-size: var(--fs-caption);
   color: var(--color-text-sub);
   margin-top: 20px;
+  line-height: var(--lh-caption);
 }
 
 /* ------------------------------------------------------------
@@ -209,7 +253,7 @@ ol, ul {
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--color-primary); /* フォールバック */
-  padding: 64px 0 72px;
+  padding: var(--section-pad-y) 0 calc(var(--section-pad-y) + 8px);
   color: #fff;
 }
 
@@ -223,22 +267,28 @@ ol, ul {
   }
 }
 
-/* FV オーバーレイ */
+/* FV スクリム（暗幕）：左重みネイビー。テキストは左揃えなので右側のヒビ画像は活かす */
 .section-fv::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-
-  /* --- グラデーション版（左テキスト側を濃く、右ヒビ側を薄く） --- */
-  background: linear-gradient(to right, rgba(15, 30, 60, 0.7), rgba(15, 30, 60, 0.35));
-
-  /* --- 単色版（均一なオーバーレイ。上のグラデーション行をコメントアウトし、下を有効にして比較） ---
-  background: rgba(15, 30, 60, 0.55);
-  */
+  background: linear-gradient(
+    90deg,
+    rgba(15, 24, 43, 0.80) 0%,
+    rgba(15, 24, 43, 0.45) 55%,
+    rgba(15, 24, 43, 0.15) 100%
+  );
 }
 
-/* FV コンテンツをオーバーレイの上に配置 */
+/* モバイル：テキストが全幅なので左重みでは右側が読みにくい → 一律スクリム */
+@media (max-width: 767px) {
+  .section-fv::before {
+    background: rgba(15, 24, 43, 0.55);
+  }
+}
+
+/* FV コンテンツをスクリムの上に配置 */
 .section-fv > .container {
   position: relative;
   z-index: 2;
@@ -257,22 +307,52 @@ ol, ul {
 
 .fv-content {
   max-width: 700px;
+  position: relative;
+  z-index: 1;
 }
 
 .fv-headline {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.45;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-h1);
+  line-height: var(--lh-h1);
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   letter-spacing: 0.01em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-break: strict;
+}
+
+/* FV内の語アクセント（オレンジ下地チップ＋白文字） */
+.fv-accent {
+  display: inline;
+  background: var(--color-cta);
+  color: #fff;
+  font-weight: var(--fw-h1);
+  padding: 0.02em 0.3em;
+  margin: -0.02em 0;
+  border-radius: 8px;
+  vertical-align: baseline;
+  line-height: inherit;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* FVサブ内の語強調（暗背景上の白太字 + 微シャドウで鮮明化） */
+.fv-emph {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
 }
 
 .fv-subtext {
-  font-size: 16px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 28px;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  font-weight: var(--fw-lead);
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 32px;
   word-break: keep-all;
   overflow-wrap: break-word;
   line-break: strict;
@@ -292,7 +372,7 @@ ol, ul {
 }
 
 .cta-block--large {
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
 .cta-block--center {
@@ -301,7 +381,7 @@ ol, ul {
 }
 
 .cta-block--closing {
-  margin-top: 36px;
+  margin-top: 40px;
 }
 
 .btn-cta {
@@ -310,8 +390,9 @@ ol, ul {
   justify-content: center;
   background-color: var(--color-cta);
   color: #fff;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: var(--fs-cta);
+  font-weight: var(--fw-cta);
+  line-height: var(--lh-cta);
   padding: 16px 32px;
   border-radius: 8px;
   letter-spacing: 0.03em;
@@ -342,16 +423,17 @@ ol, ul {
 
 /* 大きいCTAボタン（FV・締め） */
 .btn-cta--large {
-  font-size: 26px;
+  font-size: var(--fs-cta);
   padding: 18px 40px;
   min-height: 64px;
   letter-spacing: 0.05em;
 }
 
 .cta-hours {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 10px;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 12px;
 }
 
 .cta-hours--light {
@@ -380,7 +462,7 @@ ol, ul {
 
 .card-number {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: var(--fw-h);
   color: var(--color-accent);
   line-height: 1;
   flex-shrink: 0;
@@ -388,9 +470,9 @@ ol, ul {
 }
 
 .card-promise-text {
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 600;
-  line-height: 1.6;
+  line-height: var(--lh-h3);
   color: var(--color-primary);
 }
 
@@ -398,8 +480,8 @@ ol, ul {
    本文（プロズ）スタイル
    ------------------------------------------------------------ */
 .prose p {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
   margin-bottom: 1.2em;
 }
@@ -409,7 +491,7 @@ ol, ul {
 }
 
 .prose--mt {
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .prose-list {
@@ -420,8 +502,8 @@ ol, ul {
 .prose-list li {
   padding: 10px 0 10px 20px;
   position: relative;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-caption);
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
 }
@@ -435,10 +517,11 @@ ol, ul {
 }
 
 .prose-subheading {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h);
+  line-height: var(--lh-h3);
   color: var(--color-primary);
-  margin: 24px 0 12px;
+  margin: 28px 0 12px;
 }
 
 .prose-numbered-list {
@@ -448,28 +531,29 @@ ol, ul {
 }
 
 .prose-numbered-list li {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   margin-bottom: 10px;
   color: var(--color-text);
 }
 
 /* 強調テキスト */
 .text-sub {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--color-text-sub);
-  line-height: 1.7;
+  line-height: var(--lh-caption);
 }
 
 .text-emphasis {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-left: 4px solid var(--color-cta);
   background-color: var(--color-bg-alt);
   border-radius: 0 8px 8px 0;
-  margin: 16px 0;
+  margin: 20px 0;
+  line-height: var(--lh-h3);
 }
 
 /* ------------------------------------------------------------
@@ -493,16 +577,16 @@ ol, ul {
 }
 
 .card-navy-num {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h);
   flex-shrink: 0;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
+  line-height: var(--lh-h3);
 }
 
 .card--navy p {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: #fff;
 }
 
@@ -516,9 +600,9 @@ ol, ul {
 }
 
 .benefit-list__item {
-  font-size: 15px;
-  line-height: 1.7;
-  padding: 14px 0 14px 28px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-caption);
+  padding: 16px 0 16px 28px;
   border-bottom: 1px solid var(--color-border);
   position: relative;
   color: var(--color-text);
@@ -548,9 +632,9 @@ ol, ul {
 }
 
 .check-list__item {
-  font-size: 15px;
-  line-height: 1.7;
-  padding: 14px 0 14px 32px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-caption);
+  padding: 16px 0 16px 32px;
   border-bottom: 1px solid var(--color-border);
   position: relative;
   color: var(--color-text);
@@ -597,17 +681,17 @@ ol, ul {
 }
 
 .glass-card__name {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
-  margin-bottom: 4px;
-  line-height: 1.4;
+  margin-bottom: 6px;
+  line-height: var(--lh-h3);
 }
 
 .glass-card__desc {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--color-text-sub);
-  line-height: 1.5;
+  line-height: var(--lh-caption);
 }
 
 /* ------------------------------------------------------------
@@ -618,8 +702,8 @@ ol, ul {
 }
 
 .profile-block__text p {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
   margin-bottom: 1em;
 }
@@ -633,7 +717,8 @@ ol, ul {
   grid-template-columns: auto 1fr;
   gap: 6px 16px;
   margin: 16px 0;
-  font-size: 14px;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
 }
 
 .profile-info dt {
@@ -658,8 +743,8 @@ ol, ul {
 }
 
 .quote-block p {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-body);
   color: var(--color-text-sub);
   margin-bottom: 8px;
 }
@@ -680,9 +765,9 @@ ol, ul {
 }
 
 .coming-soon-block p {
-  font-size: 14px;
+  font-size: var(--fs-caption);
   color: var(--color-text-sub);
-  line-height: 1.8;
+  line-height: var(--lh-body);
 }
 
 /* ------------------------------------------------------------
@@ -699,7 +784,8 @@ ol, ul {
   width: 100%;
   min-width: 580px;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
 }
 
 /* ヨリハブ列の従来業者列（PC表示用） */
@@ -722,8 +808,8 @@ ol, ul {
 }
 
 .comparison-table thead th {
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: var(--fw-h);
+  font-size: var(--fs-caption);
   border-bottom: none;
   color: #fff;
 }
@@ -747,10 +833,10 @@ ol, ul {
 }
 
 .table-note {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--color-text-sub);
   margin-top: 12px;
-  line-height: 1.7;
+  line-height: var(--lh-caption);
 }
 
 /* ------------------------------------------------------------
@@ -772,16 +858,16 @@ ol, ul {
 }
 
 .reason-card__heading {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
-  margin-bottom: 12px;
-  line-height: 1.5;
+  margin-bottom: 16px;
+  line-height: var(--lh-h3);
 }
 
 .reason-card p {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
 }
 
@@ -813,12 +899,13 @@ ol, ul {
   width: 72px;
   background-color: var(--color-accent);
   color: #fff;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-h);
   text-align: center;
   padding: 6px 0;
   border-radius: 20px;
   letter-spacing: 0.05em;
+  line-height: var(--lh-h3);
 }
 
 .flow-item__body {
@@ -826,26 +913,27 @@ ol, ul {
 }
 
 .flow-item__title {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
-  margin-bottom: 6px;
-  line-height: 1.5;
+  margin-bottom: 8px;
+  line-height: var(--lh-h3);
 }
 
 .flow-item__time {
-  font-size: 12px;
+  font-size: var(--fs-caption);
   color: var(--color-text-sub);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: var(--lh-caption);
 }
 
 .flow-item__point {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-caption);
   color: var(--color-text);
   background-color: var(--color-accent-light);
   border-radius: 8px;
-  padding: 10px 14px;
+  padding: 12px 16px;
 }
 
 /* ------------------------------------------------------------
@@ -860,15 +948,16 @@ ol, ul {
 }
 
 .card-free__title {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  line-height: var(--lh-h3);
 }
 
 .card-free__body {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
 }
 
@@ -903,23 +992,23 @@ ol, ul {
 }
 
 .insurance-card__case {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-h);
   color: var(--color-accent);
   letter-spacing: 0.08em;
   margin-bottom: 6px;
 }
 
 .insurance-card__desc {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-h3);
   color: var(--color-text);
   font-weight: 600;
 }
 
 .insurance-body p {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
   margin-bottom: 0.8em;
 }
@@ -937,7 +1026,8 @@ ol, ul {
 .price-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
 }
 
 .price-table thead {
@@ -948,8 +1038,8 @@ ol, ul {
 .price-table th {
   padding: 14px 16px;
   text-align: left;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: var(--fw-h);
+  font-size: var(--fs-caption);
 }
 
 .price-table td {
@@ -967,10 +1057,10 @@ ol, ul {
 }
 
 .price-value {
-  font-weight: 700;
+  font-weight: var(--fw-h);
   color: var(--color-primary);
   white-space: nowrap;
-  font-size: 15px;
+  font-size: var(--fs-body);
 }
 
 .price-notes {
@@ -1003,12 +1093,12 @@ ol, ul {
 }
 
 .faq-item--static .faq-item__q {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
   background-color: var(--color-accent-light);
   padding: 16px 20px;
-  line-height: 1.5;
+  line-height: var(--lh-h3);
 }
 
 .faq-item--static .faq-item__a {
@@ -1017,8 +1107,8 @@ ol, ul {
 }
 
 .faq-item--static .faq-item__a p {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
 }
 
@@ -1045,12 +1135,12 @@ ol, ul {
   align-items: center;
   gap: 12px;
   padding: 16px 20px;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-h);
   color: var(--color-primary);
   background-color: var(--color-secondary);
   transition: background-color 0.2s;
-  line-height: 1.5;
+  line-height: var(--lh-h3);
 }
 
 .faq-item--accordion > summary.faq-item__q:hover {
@@ -1108,8 +1198,8 @@ ol, ul {
 }
 
 .faq-item--accordion .faq-item__a p {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
   margin-bottom: 8px;
 }
@@ -1125,8 +1215,8 @@ ol, ul {
 }
 
 .faq-item--accordion .faq-item__a ol li {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text);
   margin-bottom: 4px;
 }
@@ -1139,8 +1229,8 @@ ol, ul {
 }
 
 .closing-body > p {
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   margin-bottom: 1.2em;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -1149,15 +1239,16 @@ ol, ul {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-card);
   padding: 24px;
-  margin: 28px 0;
+  margin: 32px 0;
 }
 
 .closing-promises__heading {
-  font-size: 15px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 14px;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-h);
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 16px;
   letter-spacing: 0.02em;
+  line-height: var(--lh-h3);
 }
 
 .closing-promises__list {
@@ -1166,18 +1257,18 @@ ol, ul {
 }
 
 .closing-promises__list li {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: #fff;
   margin-bottom: 8px;
 }
 
 .closing-promise-statement {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h);
   color: #fff;
-  line-height: 1.7;
-  margin-bottom: 28px;
+  line-height: var(--lh-h3);
+  margin-bottom: 32px;
   border-left: 4px solid var(--color-cta);
   padding-left: 16px;
 }
@@ -1187,9 +1278,9 @@ ol, ul {
 }
 
 .closing-info p {
-  font-size: 14px;
+  font-size: var(--fs-caption);
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.8;
+  line-height: var(--lh-caption);
 }
 
 /* ------------------------------------------------------------
@@ -1389,10 +1480,6 @@ ol, ul {
    レスポンシブ：タブレット（640px〜）
    ============================================================ */
 @media (min-width: 640px) {
-  .fv-headline {
-    font-size: 32px;
-  }
-
   .cards-grid--3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -1424,32 +1511,9 @@ ol, ul {
 
 /* ============================================================
    レスポンシブ：デスクトップ（1024px〜）
+   ※ 号数は :root + 768px media query に集約。ここでは余白とレイアウトのみ。
    ============================================================ */
 @media (min-width: 1024px) {
-  .section {
-    padding: 96px 0;
-  }
-
-  .section-fv {
-    padding: 96px 0 104px;
-  }
-
-  .section--closing {
-    padding: 104px 0;
-  }
-
-  .fv-headline {
-    font-size: 38px;
-  }
-
-  .fv-subtext {
-    font-size: 17px;
-  }
-
-  .section-heading {
-    font-size: 26px;
-  }
-
   .reason-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1506,32 +1570,34 @@ ol, ul {
   }
 
   .comparison-table th[scope="row"] {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-h);
     color: var(--color-primary);
     padding-bottom: 10px;
     margin-bottom: 8px;
     border-bottom: 1px solid var(--color-border);
+    line-height: var(--lh-h3);
   }
 
   .comparison-table td::before {
     content: attr(data-label);
-    font-size: 11px;
-    font-weight: 700;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-h);
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     color: var(--color-text-sub);
+    line-height: var(--lh-caption);
   }
 
   .comparison-table .col-traditional {
     color: #999;
-    font-size: 13px;
+    font-size: var(--fs-caption);
   }
 
   .comparison-table .col-yorihub {
     color: var(--color-primary) !important;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--fw-h);
+    font-size: var(--fs-caption);
   }
 }
 
